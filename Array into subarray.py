@@ -13,6 +13,11 @@ You can add 1 at any index of array. You can do add any number of time.
 
 You need to find minimum number of times, 1 should be added such that all three sub-array is in 2^k form.
 
+Input: 
+
+T : Number of test cases.
+N : length of array
+A : array
 
 Constrains
 
