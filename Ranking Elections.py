@@ -29,6 +29,15 @@ Constrains
 
 All input are integers.
 
+Input Format:
+First line contain T
+Second line contain number of members and number of queries.
+Third line contain array of votes received
+Fourth line onwards contain query or modification.
+
+Output Format: 
+Each separate line for each testcase results.
+
 
 Sample input:
 1
