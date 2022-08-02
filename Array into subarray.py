@@ -26,6 +26,13 @@ Constrains
 1 <= A[i] <= 100
 All input are integers.
 
+Input Format:
+First line contain T
+Second line contain size of array.
+Third line contain array of votes received
+
+Output Format: 
+Each separate line for each testcase results.
 
 Sample input:
 1
