@@ -58,3 +58,31 @@ In case of A = [0, 1]
 Array is already sorted; thus ans = 0
 
 """
+
+def countSeconds(array):
+    count = 0
+    temp = sorted(array)
+    while temp != array:
+        i = 0
+
+        while i < len(array) - 1:
+            if array[i] == 1 and array[i + 1] == 0:
+                array[i], array[i + 1] = 0, 1
+                i += 2
+            else:
+                i += 1
+        count += 1
+    return count
+
+
+TestCases = int(input())
+solutions = []
+for i in range(TestCases):
+    length = int(input())
+    array = input().split(" ")
+    array = [int(x) for x in array]
+
+    solutions.append(countSeconds(array))
+
+for i in range(TestCases):
+    print(solutions[i])
