@@ -59,20 +59,17 @@ Array is already sorted; thus ans = 0
 
 """
 
-def countSeconds(array):
-    count = 0
-    temp = sorted(array)
-    while temp != array:
-        i = 0
 
-        while i < len(array) - 1:
-            if array[i] == 1 and array[i + 1] == 0:
-                array[i], array[i + 1] = 0, 1
-                i += 2
-            else:
-                i += 1
-        count += 1
-    return count
+def countSeconds(array):
+    zero, one, ans = 0, 0, 0
+    for i in array[::-1]:
+        if i == 1:
+            ans = max(ans, one + zero)
+            one = min(one + 1, one + zero)
+        else:
+            one = max(0, one - 1)
+        zero += 1 - i
+    return ans
 
 
 TestCases = int(input())
