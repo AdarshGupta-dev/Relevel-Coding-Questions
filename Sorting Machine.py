@@ -68,7 +68,7 @@ def countSeconds(array):
             one = min(one + 1, one + zero)
         else:
             one = max(0, one - 1)
-        zero += 1 - i
+            zero += 1
     return ans
 
 
