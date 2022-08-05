@@ -58,5 +58,26 @@ The longest sub-array of good array is 2
 
 """
 
-# Solution with explanation. 
+# Solution with explanation.
 
+T = int(input())
+for i in range(T):
+    A = input().split(" ")
+    X, Y = input().split(" ")
+    X, Y = int(X), int(Y)
+
+    p_arr_element = 0
+    ans = count = 0
+
+    for i in A:
+        arr_element = int(i)
+        p_arr_element += arr_element
+
+        good_array_element = p_arr_element + Y * arr_element == X
+
+        if good_array_element:
+            count += 1
+            ans = max(ans, count)
+        else:
+            count = 0
+    print(ans)
