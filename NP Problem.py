@@ -41,3 +41,35 @@ All possible good array are [1,1], [1,2], [1,3], [1,4], and [2,2].
 """
 
 # Solution with explanation.
+
+def solve(target):
+# this function solves for n ==2
+    sum = 0
+    i = 0
+    while i < P // i:
+        sum += P//i - i + 1
+        i += 1
+    return ans
+
+T = int(input())
+for i in range(T):
+    N, P = input().split(" ")
+    N, P = int(N), int(P)
+    
+    ans = 0
+    if N == 1:
+        ans = P
+    elif N == 2:
+        ans = solve(P)
+    elif N == 3:
+        sum = 0
+        i = 1
+        while True:
+            temp = solve(P//i)
+            if temp > 0:
+                sum += temp
+                i+=1
+            else:
+                break
+        ans = sum
+    print(ans)
