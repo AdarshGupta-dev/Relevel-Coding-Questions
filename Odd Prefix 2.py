@@ -2,7 +2,7 @@
 Question: Odd Prefix 2
 
 You have been given an array A of N integers. 
-An array B is said to be prefix of array A, if it can be formed by deleting several [0<= k <= N] from end of array A.
+An array B is said to be prefix of array A, if it can be formed by deleting several [0<= k < N] from end of array A.
 
 Eg. A = [5, 1, 4, 2]
 then B can be [5], [5, 1], [5, 1, 4], and [5, 1, 4, 2]
