@@ -10,7 +10,7 @@ Pk = A1 + A2 + ... Ak
 
 An array is called good array if for each k (1<= k <= N ): Pk + Y*Ak = X.
 
-Find the size of longest sequence of in given array.
+Find the size of longest sequence of good array within given array.
 
 Constrains
 
@@ -55,12 +55,11 @@ P2 + Y*A2 == Y -> 3 + 1*1 == 4 -> True
 
 The longest sub-array of good array is 2
 
-
 """
 
 # Solution with explanation.
 
-T = int(input())
+T = int(input()) # no of test cases
 for i in range(T):
     A = input().split(" ")
     X, Y = input().split(" ")
