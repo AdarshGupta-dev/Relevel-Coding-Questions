@@ -61,3 +61,34 @@ Sample output 3:
 """
 
 # Solution with explanation.
+
+def ans(odd, evens):
+    len_evens = len(evens)
+    len_odds = len(odds)
+    
+    if len_odds == 0:
+        print(0)
+        return
+    else:
+        print(len_evens + 1)
+        print(f"{odd[0]}", end=" ")
+        print(*evens, end=" ")
+        print(*odds[1:])
+        return
+
+
+n = input()
+a = [int(x) for x in input().split(" ")]
+a.sort()
+
+
+odds = []
+evens = []
+
+for i in a:
+    if i % 2:
+        odds.append(i)
+    else:
+        evens.append(i)
+
+ans(odds, evens)
