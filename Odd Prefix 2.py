@@ -113,4 +113,4 @@ def ans(arr):
 n = input()
 a = [int(x) for x in input().split(" ")]
 
-ans(arr)
+ans(a)
