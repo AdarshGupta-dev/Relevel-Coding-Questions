@@ -50,45 +50,53 @@ This can be divided into [2], [1], and [3, 1]; which does satisfy 2^k form.
 
 """
 
-# Solution with explanation. 
+# Solution with explanation.
 
-# this function return difference of x from next larger 2^k. 
-def two_power_k(x):
-    # k in 2^k is whole number. Thus k starts with 0
-    k = 0
-    while True:
-        # if x is equal to 2^k, difference is zero.
-        if x == 2**k:
+# we need to compare sum to nearest exponent. It is better to just have a list to compute every time.
+exponents_of_2 = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072]
+
+# this function return difference of x from next larger 2^k.
+def diff(x):
+    for i in exponents_of_2:
+        if x == i:
             return 0
-        # if x is greater than 2^k, increment k for next comparison.
-        elif x > 2**k:
-            k += 1
-        # if x is smaller, then we have found the next larger 2^k. We just need to return difference. 
-        else:
-            return 2**k - x
+        elif x < i:
+            return i - x
 
-# this function returns minimum placement of 1s are needed.
+
+# This function finds the minimum number of required ones
 def solve(Nums, length):
-    # we will make a list of all possible ways to make 2^k.
-    ones_needed = []
+    if length < 3:
+        return 0
 
-    # I am using 2 pointer. i will divide, a1 and a2; while j will separates a2 and a3. 
-    for i in range(1, length):
-        # i and j starts with 1 difference as sub array can't be empty.
+    # this is just a random number.
+    ans = 131072
+    sumA = 0
+
+    for i in range(1, length - 1):
+        # sumA and ansA is calculated in upper iteration to prevent re-doing in lower iteration.
+        sumA += Nums[i - 1]
+        ansA = diff(sumA)
+        sumB = 0
+        sumC = sum(Nums[i:])
+
         for j in range(i + 1, length):
-            ones_needed.append(
-                two_power_k(sum(Nums[:i])) # a1
-                + two_power_k(sum(Nums[i:j])) # a2
-                + two_power_k(sum(Nums[j:])) # a3
-            )
-    return min(ones_needed)
+            sumC -= Nums[j - 1]
+            sumB += Nums[j - 1]
+            ones_needed = ansA + diff(sumB) + diff(sumC)
+
+            if ans > ones_needed:
+                ans = ones_needed
+
+    return ans
+
 
 # number of test cases
 T = int(input())
 
 
 for i in range(T):
-    N = int(input()) # length of array 
-    A = input().split(" ") # array
+    N = int(input())  # length of array
+    A = input().split(" ")  # array
     A = [int(x) for x in A]
-    print(solve(A), length=N)
+    print(solve(A, length=N))
