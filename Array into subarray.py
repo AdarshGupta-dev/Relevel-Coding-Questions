@@ -53,7 +53,26 @@ This can be divided into [2], [1], and [3, 1]; which does satisfy 2^k form.
 # Solution with explanation.
 
 # we need to compare sum to nearest exponent. It is better to just have a list to compute every time.
-exponents_of_2 = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072]
+exponents_of_2 = [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384,
+    32768,
+    65536,
+    131072,
+]
 
 # this function return difference of x from next larger 2^k.
 def diff(x):
@@ -69,21 +88,44 @@ def solve(Nums, length):
     if length < 3:
         return 0
 
-    # this is just a random number.
+    # this is just a random number. Which I think would be maximum possible ans. Probably.
     ans = 131072
+    T_sum = sum(Nums)
+
+    # I am diving array into 3 parts, NumsA, NumsB, and NumsC.
+    # NumsA is Nums[0:i], NumsB is Nums[i:j], and NumsC is [j:]
+    # sumA, and ansA corresponds to NumA. sumA is simply sum of all elements, and ansA is difference of sumA and next larger 2^k.
     sumA = 0
+    ansA = diff(sumA)
 
     for i in range(1, length - 1):
-        # sumA and ansA is calculated in upper iteration to prevent re-doing in lower iteration.
-        sumA += Nums[i - 1]
-        ansA = diff(sumA)
+
+        temp = Nums[i - 1]
+
+        if temp < ansA:
+            ansA -= temp
+            sumA += temp
+        else:
+            sumA += temp
+            ansA = diff(sumA)
+
         sumB = 0
-        sumC = sum(Nums[i:])
+        ansB = diff(sumB)
+
+        sumC = T_sum - sumA
 
         for j in range(i + 1, length):
-            sumC -= Nums[j - 1]
-            sumB += Nums[j - 1]
-            ones_needed = ansA + diff(sumB) + diff(sumC)
+            temp = Nums[j - 1]
+
+            if temp < ansB:
+                ansB -= temp
+                sumB += temp
+            else:
+                sumB += temp
+                ansB = diff(sumB)
+
+            sumC -= temp
+            ones_needed = ansA + ansB + diff(sumC)
 
             if ans > ones_needed:
                 ans = ones_needed
