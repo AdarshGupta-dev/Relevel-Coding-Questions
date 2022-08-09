@@ -92,25 +92,23 @@ def solve(Nums, length):
     ans = 131072
     T_sum = sum(Nums)
 
-    # I am diving array into 3 parts, NumsA, NumsB, and NumsC.
+    # I am dividing the entire array into 3 parts: NumsA, NumsB, and NumsC.
     # NumsA is Nums[0:i], NumsB is Nums[i:j], and NumsC is [j:]
     # sumA, and ansA corresponds to NumA. sumA is simply sum of all elements, and ansA is difference of sumA and next larger 2^k.
-    sumA = 0
-    ansA = diff(sumA)
+    sumA, ansA = 0, 1
 
     for i in range(1, length - 1):
 
         temp = Nums[i - 1]
 
         if temp < ansA:
-            ansA -= temp
             sumA += temp
+            ansA -= temp
         else:
             sumA += temp
             ansA = diff(sumA)
 
-        sumB = 0
-        ansB = diff(sumB)
+        sumB, ansB = 0, 1
 
         sumC = T_sum - sumA
 
@@ -118,8 +116,8 @@ def solve(Nums, length):
             temp = Nums[j - 1]
 
             if temp < ansB:
-                ansB -= temp
                 sumB += temp
+                ansB -= temp
             else:
                 sumB += temp
                 ansB = diff(sumB)
