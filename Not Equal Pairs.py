@@ -39,24 +39,24 @@ def findPair(arr):
     for i in range(1, len(arr)):
         if arr[i] != temp:
             pairs += 1
-            arr.pop(0)
-            arr.pop(i - 1)
+            arr[0], arr[i - 1] = arr[-1], arr[-2]
+            arr.pop()
+            arr.pop()
             return
     return True
 
+
 n = int(input())
 arr = [int(x) for x in input().split(" ")]
-n = len(arr)
 
 pairs = 0
 
 while len(arr) > 1:
     if findPair(arr):
         break
-if len(arr) > 1:
 
+if len(arr) > 1:
     if arr.count(arr[0]) <= n - len(arr):
         pairs += arr.count(arr[0]) // 2
-
 
 print(pairs)
