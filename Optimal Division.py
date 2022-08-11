@@ -42,22 +42,22 @@ It can be proved that this is the maximum possible value.
 
 
 def solve(arr, length):
-    hash = {}
-    for i in arr:
-        if i in hash:
-            hash[i] += 1
-        else:
-            hash[i] = 1
     count = 0
-    for i in hash.values():
-        if i == 1:
+    temp = -1
+    for i in range(length):
+        if arr[i] == temp:
+            continue
+        temp = arr[i]
+        if i == length - 1 or arr[i] != arr[i + 1]:
             count += 1
         else:
             count += 2
+
     return count
 
 
 N = int(input())
-A = [int(x) for x in input().split(" ")]
+A = input().split(" ")
+A.sort()
 
 print(solve(A, N))
