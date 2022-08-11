@@ -40,3 +40,24 @@ Hence total value = 2+3 = 5.
 It can be proved that this is the maximum possible value.
 """
 
+
+def solve(arr, length):
+    hash = {}
+    for i in arr:
+        if i in hash:
+            hash[i] += 1
+        else:
+            hash[i] = 1
+    count = 0
+    for i in hash.values():
+        if i == 1:
+            count += 1
+        else:
+            count += 2
+    return count
+
+
+N = int(input())
+A = [int(x) for x in input().split(" ")]
+
+print(solve(A, N))
