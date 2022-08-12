@@ -38,3 +38,18 @@ For i=5, Ai = 2, B = [5 1 4 3].
 
 
 """
+
+def solve(arr, length):
+    count = 0
+    for value in arr:
+        if arr[-1] < value + length - 1:
+            count += 1
+    return count
+
+
+n = int(input())
+A = [int(x) for x in input().split(" ")]
+
+A.sort()
+
+print(solve(A, n))
