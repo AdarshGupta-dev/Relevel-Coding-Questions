@@ -2,18 +2,14 @@
 Question: Longest Good Array 1.0
 
 You have been given an array A of N integers. 
-
 P is defined as sum of every previous element in array. 
-
 for: 1<= k <= N
 Pk = A1 + A2 + ... Ak
 
 An array is called good array if for each k (1<= k <= N ): Pk + Y*Ak = X.
-
 Find the size of longest sequence of good array within given array.
 
 Constrains
-
 1 <= T <= 1000
 1 <= N <= 1000
 1 <= A[i] <= 10000
@@ -21,7 +17,6 @@ Constrains
 All input are integers.
 
 Input: 
-
 T : Number of test cases.
 N : length of array
 A : array
@@ -50,9 +45,7 @@ P = [2, 3]
 good array: 
 P1 + Y*A1 == Y -> 2 + 1*2 == 4 -> True
 P2 + Y*A2 == Y -> 3 + 1*1 == 4 -> True
-
 [True, True]
-
 The longest sub-array of good array is 2
 
 """

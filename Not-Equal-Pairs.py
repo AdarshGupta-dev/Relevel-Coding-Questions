@@ -8,7 +8,6 @@ Return maximum number of pairs that can be formed from Array such that:
 2. Any element can be in at most one pair.
 
 Input Format
-
 First line contains a single integer denoting N.
 Next line contains N space separated integers denoting the elements of array A.
 Output Format
@@ -25,7 +24,6 @@ Sample Output 1
 2
 
 Explanation of Sample 1
-
 pairs that can be formed or [[2,1], [3,2]] or [[2,1], [3,1]] or [[2,3],[1,2]]
 In maximum number of pairs are 2.
 """

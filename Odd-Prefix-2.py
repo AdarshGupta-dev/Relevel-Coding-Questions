@@ -15,12 +15,10 @@ Now, arrange the array in such a way; that there are maximum number of good pref
 Print number of good prefixes, and array. If multiple array are possible, print the lexicographically smallest of them.
 
 Input: 
-
 N : length of array
 A : array
 
 Constrains
-
 1 <= N <= 10000
 1 <= A[i] <= 10000
 All input are integers.

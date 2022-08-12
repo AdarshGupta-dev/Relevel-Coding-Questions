@@ -10,9 +10,7 @@ Find the the number of different array B than can be generated with following co
 
 since ans can be very large, print the ans % 10^9 + 7
 
-
 Constrains
-
 1 <= N <= 10000
 1 <= A[i] <= 10^9
 All input are integers.
@@ -46,7 +44,6 @@ For 45: [12, 13, 14, 15, 21, 23, 24, 25, 31, 32, 34, 35, 41, 42, 43, 45]: Ans wo
 Thank you.
 1 can be added at position 1, 2, or 3 to make it into [2, 1, 3, 1]. 
 This can be divided into [2], [1], and [3, 1]; which does satisfy 2^k form.
-
 
 """
 

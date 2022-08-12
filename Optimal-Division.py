@@ -11,16 +11,13 @@ Split the array into 2 parts, such that sum of values of 2 sub-arrays are maximu
 Note : It may be possible that one of them does not receive any element of the bought array.
 
 Input Format
-
 First line contains a single integer denoting N.
 Next line contains N space separated integers denoting the elements of the bought array.
 
 Output Format
-
 Print the maximum possible total value of the final arrays that can be achieved if elements of the array are dived optimally.
 
 Constraints
-
 1<=N<=10^5
 1<= element of the array<=10^9
 

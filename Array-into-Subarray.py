@@ -7,21 +7,16 @@ Divided it into 3 non-empty sub-arrays, such that sum of each sub-array can be r
 Eg. A = [1, 2, 3, 1]
 
 A can be divided into [1], [2], [3, 1]. These have sum of 1 = 2^0, 2 = 2^1, and 4 = 2^2. 
-
 You can add 1 at any index of array. You can do add any number of time. 
-
 
 You need to find minimum number of times, 1 should be added such that all three sub-array is in 2^k form.
 
 Input: 
-
 T : Number of test cases.
 N : length of array
 A : array
 
 Constrains
-
-1 <= T <= 5
 1 <= N <= 1000
 1 <= A[i] <= 100
 All input are integers.
@@ -43,11 +38,7 @@ Sample output:
 1
 
 Explanation: 
-
-1 can be added at position 1, 2, or 3 to make it into [2, 1, 3, 1]. 
 This can be divided into [2], [1], and [3, 1]; which does satisfy 2^k form.
-
-
 """
 
 # Solution with explanation.

@@ -14,7 +14,6 @@ Bi denotes the number of integers in the bucket numbered i.
 Find the maximum possible value of M, for M = min( B1, B2, ... BK), if buckets are filled optimally.
 
 Constrains
-
 1 <= T <= 10
 1 <= K <= N <= 100,000
 2 <= A[i] <= 120
@@ -39,7 +38,6 @@ Sample output:
 2
 
 Explanation: 
-
 We need to perfectly fill 2 buckets with maximum number of elements from Array A. 
 
 B1 = 3: Bucket would contain [3, 5, 3]. 

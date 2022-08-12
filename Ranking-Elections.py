@@ -13,20 +13,17 @@ eg. 3 members received [2, 3, 2] votes respectively. Their ranks would be [2, 1,
 (N+1)th member have yet to receive votes. Find out total number of different ranks he could possibly get. 
 
 Input: 
-
 T : Number of test cases.
 N, Q : number of members and number of queries.
 A : array of votes received
 L, Q : Query
 
 Constrains
-
 1 <= T <= 1000
 1 <= N,Q <= 100000
 1 <= A[i] <= 10^9
 1 <= L <= N
 1 <= R <= 10^9
-
 All input are integers.
 
 Input Format:
@@ -37,7 +34,6 @@ Fourth line onwards contain query or modification.
 
 Output Format: 
 Each separate line for each testcase results.
-
 
 Sample input:
 1
