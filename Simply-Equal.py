@@ -34,3 +34,15 @@ Explanation of Sample 1
 
 She can select the subsequence S = {A1, A3} and decrease each by 1. So array becomes: A = [1, 1, 1]
 """
+
+test_case = int(input())
+ans = []
+
+for i in range(test_case):
+    length = input()
+    arr = input()
+    y = list(map(int, arr.split()))
+    ans.append(max(y) - min(y))
+
+for i in ans:
+    print(i)
