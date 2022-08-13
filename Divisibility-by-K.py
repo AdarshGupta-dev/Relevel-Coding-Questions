@@ -36,3 +36,41 @@ Iteration 2: Select {A3}, and increment them. A = [3,3,6,3]
 
 Now each element of the array is divisible by 3.
 """
+
+
+def solve(arr, length, K):
+    remainders = [False] * K + [True]
+    for i in arr:
+        remainders[i % K] = True
+        if all(remainders):
+            break
+
+    iterations = K
+    for i in range(1, K):
+        remainders_left = remainders[:i]
+        remainders_right = remainders[i:]
+
+        temp = 0
+        if True in remainders_left:
+            temp = len(remainders_left) - 1 - remainders_left[::-1].index(True)
+        if True in remainders_right:
+            temp += K - i - remainders_right.index(True)
+        iterations = min(iterations, temp)
+
+    return iterations
+
+
+test_cases = int(input())
+ans = []
+
+for i in range(test_cases):
+    length, K = input().split()
+    K = int(K)
+
+    arr = input()
+    arr = list(map(int, arr.split()))
+
+    ans.append(solve(arr, length, K))
+
+for i in ans:
+    print(i)
