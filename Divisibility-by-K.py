@@ -67,10 +67,8 @@ for i in range(test_cases):
     length, K = input().split()
     K = int(K)
 
-    arr = input()
-    arr = list(map(int, arr.split()))
+    arr = list(map(int, input().split()))
 
     ans.append(solve(arr, length, K))
 
-for i in ans:
-    print(i)
+print(*ans, sep="\n")
