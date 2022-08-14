@@ -48,8 +48,7 @@ def solve(arr, length):
 
 
 n = int(input())
-A = [int(x) for x in input().split(" ")]
-
+A = [int(x) for x in input().split()]
 A.sort()
 
 print(solve(A, n))
