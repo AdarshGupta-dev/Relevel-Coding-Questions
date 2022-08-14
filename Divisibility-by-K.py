@@ -37,16 +37,27 @@ Iteration 2: Select {A3}, and increment them. A = [3,3,6,3]
 Now each element of the array is divisible by 3.
 """
 
+# Solution with explanation:
+
+# Step1: Take modulus of every int. For k = 5, Ai 1, 6, 11, 16... all these are same. They would need equal effort. So make them one.
+# You don't even need to iterate over entire list. Just till you have found all possible remainders.
+
+# now move a pointer from 1, to k-1. Push everything on left to 0 and everything on right to k. Count cost. 
+# repeat and return smallest of them.
 
 def solve(arr, length, K):
+    # this is to check appearance of every possible remainders. Last True is just buffer.
     remainders = [False] * K + [True]
     for i in arr:
         remainders[i % K] = True
         if all(remainders):
             break
-
+    
+    # k is maximum possible iteration.
     iterations = K
     for i in range(1, K):
+        # we are moving a divider from 1 to k.
+        # pushing every left to zero, and right to k.
         remainders_left = remainders[:i]
         remainders_right = remainders[i:]
 
@@ -61,7 +72,7 @@ def solve(arr, length, K):
 
 
 test_cases = int(input())
-ans = []
+output = []
 
 for i in range(test_cases):
     length, K = input().split()
@@ -69,6 +80,6 @@ for i in range(test_cases):
 
     arr = list(map(int, input().split()))
 
-    ans.append(solve(arr, length, K))
+    output.append(solve(arr, length, K))
 
-print(*ans, sep="\n")
+print(*output, sep="\n")
