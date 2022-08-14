@@ -44,26 +44,7 @@ This can be divided into [2], [1], and [3, 1]; which does satisfy 2^k form.
 # Solution with explanation.
 
 # we need to compare sum to nearest exponent. It is better to just have a list to compute every time.
-exponents_of_2 = [
-    1,
-    2,
-    4,
-    8,
-    16,
-    32,
-    64,
-    128,
-    256,
-    512,
-    1024,
-    2048,
-    4096,
-    8192,
-    16384,
-    32768,
-    65536,
-    131072,
-]
+exponents_of_2 = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072]
 
 # this function return difference of x from next larger 2^k.
 def diff(x):
@@ -124,10 +105,11 @@ def solve(Nums, length):
 
 # number of test cases
 T = int(input())
-
+results = []
 
 for i in range(T):
     N = int(input())  # length of array
-    A = input().split(" ")  # array
-    A = [int(x) for x in A]
-    print(solve(A, length=N))
+    A = list(map(int, input().split()))
+    results.append(solve(A, length=N))
+
+print(*results, sep="\n")
