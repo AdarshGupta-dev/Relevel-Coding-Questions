@@ -30,3 +30,26 @@ Explanation of Sample 1
 One can select the subset as [4 2 3 1]. 
 The sum of all elements of this subset = 4+2+1 = 7 which is odd.
 """
+
+
+def solve(arr, length):
+    odd = 0
+    even = 0
+    for i in arr:
+        if int(i) % 2:
+            odd += 1
+        else:
+            even += 1
+
+    if odd == 0:
+        return -1
+
+    if odd % 2:
+        return even + odd
+    return even + odd - 1
+
+
+length = input()
+arr = input().split()
+
+print(solve(arr))
