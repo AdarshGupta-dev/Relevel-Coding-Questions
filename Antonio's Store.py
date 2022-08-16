@@ -30,3 +30,18 @@ For the given test case, we can set K=4 and then
 Add 2 more basketballs in the first.
 Add 2 more basketballs in the second
 """
+
+
+def solve(arr, length, extras):
+    empty = max(arr) * length - sum(arr)
+
+    if empty > extras:
+        return max(arr)
+    return max(arr) + ((extras - empty) // length) + 1
+
+
+n, m = [int(x) for x in input().split()]
+
+a = list(map(int, input().split()))
+
+print(solve(a, n, m))
