@@ -34,17 +34,18 @@ Sample Explanation
 One of the solutions is to flip the digit at index 2 resulting in our array as 1 0 1 1 and 1 0(index 1 and 2) will be our required subarray
 """
 
-# Solution with explanation: 
+# Solution with explanation:
 
 
 def solve(arr, length, ones, zeros):
     ansO = ones - sum(arr[0:ones])
     ansZ = sum(arr[ones : ones + zeros])
     ans = ansO + ansZ
-    print(ansO, ansZ, ans)
+    j = ones
+    k = ones + zeros
     for i in range(1, length):
-        j = i + ones
-        k = j + zeros
+        j +=1
+        k +=1
 
         if arr[j - 1] and not arr[i - 1]:
             ansO = max(0, ansO - 1)
@@ -55,12 +56,11 @@ def solve(arr, length, ones, zeros):
             ansZ += 1
         if not arr[k - 1] and arr[j - 1]:
             ansZ = max(0, ansZ - 1)
-        print(arr[i:k])
-        print(ansO, ansZ)
         ans = min(ans, ansO + ansZ)
     return ans
 
 
-N, O, Z = [int(x) for x in input().split(" ")]
-A = [int(x) for x in input().split(" ")]
+N, O, Z = [int(x) for x in input().split()]
+A = [int(x) for x in input().split()]
+A += A[: O + Z - 2]
 print(solve(A, N, O, Z))
